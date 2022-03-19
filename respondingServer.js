@@ -4,29 +4,29 @@ const app = express();
 const searchScrapper = require("./searchScrapper");
 const clickScrapper = require("./clickScrapper");
 
-// app.get("/", (req, res) => {
-//   var rawQuery = req.url;
-//   if (rawQuery.includes("clickedDiv=")) {
-//     let Query = rawQuery.replace("/clickedDiv=", "");
-//     let url = "https://wallpapercave.com/" + Query;
-//     clickScrapper.scrapClick(url).then((p) => {
-//       let responseFile = p;
-//       res.setHeader("Content-Type", "application/json");
-//       res.setHeader("Access-Control-Allow-Origin", "*");
-//       res.end(responseFile);
-//     });
-//   } else {
-//     let Query = rawQuery.replace("/", "");
-//     searchScrapper
-//       .scrap("https://wallpapercave.com/search?q=" + Query)
-//       .then((p) => {
-//         let responseFile = p;
-//         res.setHeader("Content-Type", "application/json");
-//         res.setHeader("Access-Control-Allow-Origin", "*");
-//         res.end(responseFile);
-//       });
-//   }
-// });
+app.get("/", (req, res) => {
+  var rawQuery = req.url;
+  if (rawQuery.includes("clickedDiv=")) {
+    let Query = rawQuery.replace("/clickedDiv=", "");
+    let url = "https://wallpapercave.com/" + Query;
+    clickScrapper.scrapClick(url).then((p) => {
+      let responseFile = p;
+      res.setHeader("Content-Type", "application/json");
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.end(responseFile);
+    });
+  } else {
+    let Query = rawQuery.replace("/", "");
+    searchScrapper
+      .scrap("https://wallpapercave.com/search?q=" + Query)
+      .then((p) => {
+        let responseFile = p;
+        res.setHeader("Content-Type", "application/json");
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.end(responseFile);
+      });
+  }
+});
 
 // app.listen(process.env.PORT || 1000, (error) => {
 //   if (error) {
@@ -35,11 +35,3 @@ const clickScrapper = require("./clickScrapper");
 //     console.log("listening");
 //   }
 // });
-
-app.get("/", (res, req) => {
-  res.send("working");
-});
-
-app.listen(process.env.PORT || 1000, () => {
-  console.log("listening");
-});
