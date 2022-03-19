@@ -4,6 +4,7 @@
   "description": "",
   "main": "respondingServer.js",
   "scripts": {
+    "start": "node respondingServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
