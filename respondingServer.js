@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
       let responseFile = p;
       res.setHeader("Content-Type", "application/json");
       res.setHeader("Access-Control-Allow-Origin", "*");
-      res.end("okaaaay");
+      res.end(responseFile);
     });
   } else {
     let Query = rawQuery.replace("/", "");
