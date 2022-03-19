@@ -1,8 +1,10 @@
 const http = require("http");
+const express = require("express");
+const app = express();
 const searchScrapper = require("./searchScrapper");
 const clickScrapper = require("./clickScrapper");
 
-const server = http.createServer((req, res) => {
+app.get("/", (req, res) => {
   var rawQuery = req.url;
   if (rawQuery.includes("clickedDiv=")) {
     let Query = rawQuery.replace("/clickedDiv=", "");
@@ -26,7 +28,7 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(process.env.PORT || 1000, (error) => {
+app.listen(process.env.PORT || 1000, (error) => {
   if (error) {
     console.log("erroor");
   } else {
