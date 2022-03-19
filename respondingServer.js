@@ -15,15 +15,14 @@ const server = http.createServer((req, res) => {
     });
   } else {
     let Query = rawQuery.replace("/", "");
-    // searchScrapper
-    //   .scrap("https://wallpapercave.com/search?q=" + Query)
-    //   .then((p) => {
-    //     let responseFile = p;
-    //     res.setHeader("Content-Type", "application/json");
-    //     res.setHeader("Access-Control-Allow-Origin", "*");
-    //     res.end("okay");
-    //   });
-    res.end(Query);
+    searchScrapper
+      .scrap("https://wallpapercave.com/search?q=" + Query)
+      .then((p) => {
+        let responseFile = p;
+        res.setHeader("Content-Type", "application/json");
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.end(responseFile);
+      });
   }
 });
 
