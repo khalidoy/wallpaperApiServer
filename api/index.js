@@ -1,6 +1,6 @@
 const http = require("http");
-const searchScrapper = require("./searchScrapper");
-const clickScrapper = require("./clickScrapper");
+const searchScrapper = require("../searchScrapper");
+const clickScrapper = require("../clickScrapper");
 
 const server = http.createServer((req, res) => {
   var rawQuery = req.url;
@@ -26,4 +26,10 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(process.env.PORT || 3000, (err) => {});
+server.listen(process.env.PORT || 3000, (err) => {
+  if (err) {
+    console.log("eroor");
+  } else {
+    console.log("listening");
+  }
+});
