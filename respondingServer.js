@@ -1,6 +1,6 @@
 const http = require("http");
-const searchScrapper = require("../searchScrapper");
-const clickScrapper = require("../clickScrapper");
+const searchScrapper = require("./searchScrapper");
+const clickScrapper = require("./clickScrapper");
 
 const server = http.createServer((req, res) => {
   var rawQuery = req.url;
