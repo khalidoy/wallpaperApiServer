@@ -4,7 +4,7 @@ const cheerio = require("cheerio");
 async function getSourceCode(url) {
   var rawSourceCode = await axios.get(url);
   rawSourceCode = rawSourceCode.data;
-  return rawSourceCode;
+  console.log(rawSourceCode);
 }
 
 async function scrap(url) {
