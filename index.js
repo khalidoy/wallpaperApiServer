@@ -26,4 +26,10 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(process.env.PORT || 1000, () => {});
+server.listen(process.env.PORT || 1000, (err) => {
+  if (error) {
+    console.log("erroor");
+  } else {
+    console.log("listening");
+  }
+});
