@@ -1,7 +1,6 @@
 const http = require("http");
 const searchScrapper = require("./searchScrapper");
 const clickScrapper = require("./clickScrapper");
-
 const server = http.createServer((req, res) => {
   var rawQuery = req.url;
   if (rawQuery.includes("clickedDiv=")) {
@@ -26,9 +25,9 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(process.env.PORT || 1000, (err) => {
-  if (err) {
-    console.log("eroor");
+server.listen(process.env.PORT || 1000, (error) => {
+  if (error) {
+    console.log("erroor");
   } else {
     console.log("listening");
   }
